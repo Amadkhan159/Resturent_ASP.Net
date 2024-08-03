@@ -1,0 +1,11 @@
+Step 1 :  Goto Database Folder
+Use any of the above file to generate database 
+then change connection String  in DBLayer to connect database.
+
+and also if images not load then replace location of images in database.
+
+from usertable get login details.
+
+If you have any query contact on
+
+https://www.fiverr.com/amadkhan159

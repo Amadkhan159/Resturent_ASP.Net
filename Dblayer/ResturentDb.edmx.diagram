@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34197e54da8a438587b64fc03259805d" Name="Diagram1">
+        <EntityTypeShape EntityType="ResturentDbModel.AddressTypeTable" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.GenderTable" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.ReservationStatusTable" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.StockItemCategoryTable" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.StockItemIngredientTable" Width="1.5" PointX="12.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.StockItemTable" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.StockMenuCategoryTable" Width="1.5" PointX="13.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.StockMenuItemTable" Width="1.5" PointX="15.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.TableReservationTable" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.UserAddressTable" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.UserDetailTable" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.UserStatusTable" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.UserTable" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.UserTypeTable" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturentDbModel.VisibleStatusTable" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserAddressTable_AddressTypeTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserTable_GenderTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_TableReservationTable_ReservationStatusTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockItemCategoryTable_VisibleStatusTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockItemTable_StockItemCategoryTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockItemIngredientTable_StockItemTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockItemTable_VisibleStatusTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockMenuItemTable_StockItemTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockMenuItemTable_StockMenuCategoryTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_StockMenuItemTable_VisibleStatusTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_TableReservationTable_Process_UserTable2" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_TableReservationTable_UserTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserAddressTable_UserTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserAddressTable_VisibleStatusTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserDetailTable_UserTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserTable_UserStatusTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturentDbModel.FK_UserTable_UserTypeTable1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
