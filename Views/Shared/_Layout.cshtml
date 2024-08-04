@@ -1,0 +1,257 @@
+﻿@{
+    int userid = 0, usertypeid = 0;
+    if (!string.IsNullOrEmpty(Convert.ToString(Session["UserID"])))
+    {
+        int.TryParse(Convert.ToString(Session["UserID"]), out userid);
+    }
+    if (!string.IsNullOrEmpty(Convert.ToString(Session["UserTypeID"])))
+    {
+        int.TryParse(Convert.ToString(Session["UserTypeID"]), out usertypeid);
+    }
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#e54c2a">
+        <!-- Favicon -->
+        <link type="image/x-icon" rel="shortcut icon" href="favicon.png" />
+        <title>Restaurant and Drinks</title>
+        <meta name="description" content="Restaurant, food and Drinks HTML5 website template is Modern, Clean and Professional site template. Prefect for RESTAURANT, Bakery, Cafe, Bar, Catering, food business and for personal chef portfolio website.">
+
+        <!-- Bootstrap stylesheet -->
+        <link href="~/Content/Template/assets/libs/bootstrap-4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- icofont -->
+        <link href="~/Content/Template/assets/libs/icofont/css/icofont.css" rel="stylesheet" type="text/css" />
+        <!-- crousel css -->
+        <link href="~/Content/Template/assets/libs/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+        <!-- mb.YTPlayer css -->
+        <link href="~/Content/Template/assets/libs/mb.YTPlayer/css/jquery.mb.YTPlayer.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme Stylesheet -->
+        <link href="~/Content/Template/assets/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- Switch Color Style css -->
+        <link href="~/Content/Template/assets/css/color/skin-default.css" data-style="styles" rel="stylesheet">
+    </head>
+    <body class="">
+        <div class="wrapper">
+            <!-- Loader Start -->
+            <div class="loader">
+                <div class="loader-inner">
+                    <h4>Cooking in progress..</h4>
+                    <div id="cooking">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div id="area">
+                            <div id="sides">
+                                <div id="pan"></div>
+                                <div id="handle"></div>
+                            </div>
+                            <div id="pancake">
+                                <div id="pastry"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Loader End -->
+            <!--  Header Start  -->
+            <header>
+                <!--Top Header Start -->
+                <div class="top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-12">
+
+                                <!-- Header Social Start -->
+                                <ul class="list-inline float-right icon">
+                                    <li class="list-inline-item"><a href="shopping-cart.html"><i class="icofont icofont-cart-alt"></i> Cart</a></li>
+                                    <li class="list-inline-item dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-ui-user"></i> My Account</a>
+                                        <ul class="dropdown-menu dropdown-menu-right drophover" aria-labelledby="dropdownMenuLink">
+                                            @if (userid <= 0)
+                                            {
+                                                <li class="dropdown-item"><a href="@Url.Content("~/User/Login")">Login</a></li>
+                                                <li class="dropdown-item"><a href="@Url.Content("~/User/Register")">Register</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li class="dropdown-item"><a href="@Url.Content("~/User/Dashboard")">Dashboard</a></li>
+                                                <li class="dropdown-item"><a href="@Url.Content("~/User/Logout")">Logout</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                    <li class="list-inline-item">
+
+                                    </li>
+                                </ul>
+                                <!-- Header Social End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Top Header End -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            
+                        </div>
+
+                        <div class="col-md-7 col-sm-6 col-12 paddleft">
+                            <!-- Main Menu Start  -->
+                            <div id="menu">
+                                <nav class="navbar navbar-expand-md">
+                                    <div class="navbar-header">
+                                        <span class="menutext d-block d-md-none">Menu</span>
+                                        <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggler" type="button"><i class="icofont icofont-navigation-menu"></i></button>
+                                    </div>
+                                    <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
+                                        <ul class="nav navbar-nav">
+                                            <li class="nav-item"><a href="@Url.Content("~/Home/Index")">HOME</a></li>
+                                            <li class="nav-item"><a href="#">Our Menu</a></li>
+                                            @if (usertypeid == 1 || usertypeid == 2) // Admin or Staff
+                                            {
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setting</a>
+                                                    <div class="dropdown-menu">
+                                                        <div class="dropdown-inner">
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="@Url.Content("~/Setting/List_UserTypes")">User Types</a></li>
+                                                                <li><a href="@Url.Content("~/Setting/List_Genders")">Genders</a></li>
+                                                                <li><a href="@Url.Content("~/Setting/List_UserStatus")">Account Status</a></li>
+                                                                <li><a href="@Url.Content("~/Setting/List_VisibleStatus")">Record Visible Status</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+
+                                            @if (usertypeid ==1 || usertypeid==2 ) // Admin or Staff
+                                            {
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stock</a>
+                                                    <div class="dropdown-menu">
+                                                        <div class="dropdown-inner">
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="@Url.Content("~/Stock/StockItemCategory")">Stock Categories</a></li>
+                                                                <li><a href="@Url.Content("~/Stock/StockItem?id=0")">Stock Items</a></li>
+                                                                <li><a href="@Url.Content("~/Stock/StockMenu?id=0")">Menu</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            @if (userid > 0)
+                                            {
+                                                <li class="nav-item"><a href="@Url.Content("~/TableReservation/BookingTables?id=0")">Reservation</a></li>
+                                            }
+                                            <li class="nav-item"><a href="#">contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <!-- Main Menu End -->
+                        </div>
+                        <div class="col-md-2 col-sm-12 col-12 button-top paddleft">
+                            <a class="btn-primary btn" href="@Url.Content("~/Home/Index#reservationtable")">Book Your Table</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Header End   -->
+            @RenderBody()
+            <footer>
+                <div class="container">
+                    <div class="row inner">
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <!-- Footer Widget Start -->
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled contact">
+                                <li><i class="icofont icofont-social-google-map"></i> Kaula lampor Malaysia</li>
+                                <li><i class="icofont icofont-phone"></i> 12345678,<br>12345678</li>
+                               
+                            </ul>
+                            <!-- Footer Widget End -->
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <!-- Footer Widget Start -->
+                            <h5>Information</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#">About us</a></li>
+                               
+                                <li><a href="#">Contact us</a></li>
+                                
+                            </ul>
+                            <!-- Footer Widget End -->
+                        </div>
+                        <div class="w-100 d-none d-xs-block"></div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <!-- Footer Widget Start -->
+                            <h5>Open Hours</h5>
+                            <ul class="list-unstyled">
+                                <li>Monday - Friday : 9 am to 12 am.</li>
+                                <li>Saturday - Sunday : 24 Hour Open</li>
+                                <li>Breakfast : 7 am to 12 pm</li>
+                                <li>Lunch : 12 pm to 7 pm</li>
+                                <li>Dinner : 7 am to 12 am</li>
+                            </ul>
+                            <!-- Footer Widget End -->
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <!-- Footer Widget Start -->
+                            <!-- Footer Widget End -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row powered">
+                            <!--  Copyright Start -->
+                            <div class="col-md-3 col-sm-6 order-md-1">
+                              
+                            </div>
+                            <div class="col-md-3 col-sm-6 text-right order-md-3">
+                                <!--  Footer Social Start -->
+                                <!--  Footer Social End -->
+                            </div>
+                            <div class="col-md-6 col-sm-12 text-center order-md-2">
+                                <p>Copyright © <span>Restaurant & Drinks</span> 2024. All Rights Reserved.</p>
+                            </div>
+                            <!--  Copyright End -->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer End  -->
+
+        </div>
+
+        <!-- jquery -->
+        <script src="~/Content/Template/assets/libs/jquery/jquery.min.js"></script>
+        <!-- jquery Validate -->
+        <script src="~/Content/Template/assets/libs/jquery-validation/jquery.validate.min.js"></script>
+        <!-- popper js -->
+        <script src="~/Content/Template/assets/libs/popper/popper.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="~/Content/Template/assets/libs/bootstrap-4.5.0/js/bootstrap.min.js"></script>
+        <!-- owlcarousel js -->
+        <script src="~/Content/Template/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
+        <!--inview js code-->
+        <script src="~/Content/Template/assets/libs/jquery.inview/jquery.inview.min.js"></script>
+        <!--CountTo js code-->
+        <script src="~/Content/Template/assets/libs/jquery.countTo/jquery.countTo.js"></script>
+        <!-- mb.YTPlayer js code-->
+        <script src="~/Content/Template/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
+        <!--internal js-->
+        <script src="~/Content/Template/assets/js/internal.js"></script>
+    </body>
+
+</html>
+ }
